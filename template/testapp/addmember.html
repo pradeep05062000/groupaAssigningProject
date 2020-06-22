@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body >
+
+<br>
+		<h3>Add Member</h3>
+		<label>Username</label>
+		<input type="text"  id = "member" name="assigned_to" onchange="addmember()">
+		<a href="" onclick="this.href='/addmember/{{created_by}}/{{group}}/'+ document.getElementById('member').value" class = "btn btn-primary btn-sm">Add</a>
+
+		<div><br>
+
+		{% if data %}
+		<table class="table" style="width: 40%;"> 
+				<tr>
+					<th>
+					Members
+					</th>
+					
+				</tr>
+				
+			{% for data in data %}
+			
+				<tr>
+					<td>
+					<a href="/groupmember/{{data.id}}">{{data.member}}</a>
+					</td>
+				</tr>
+				
+			{% endfor %}
+		</table>
+		{% endif %}
+	</div>
+
+</body>
+</html>
